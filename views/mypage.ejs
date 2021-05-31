@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+    <%- include('layouts/header'); -%>
+
+
+<body>
+
+    <%- include('layouts/bar'); -%>
+
+    <!-- Normal Breadcrumb Begin -->
+    <section class="normal-breadcrumb set-bg" data-setbg="/img/normal-breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="normal__breadcrumb__text">
+                        <h2>My Page</h2>
+                        <p>Welcome to the official Anime blog.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Normal Breadcrumb End -->
+
+    <!-- My page Section Begin -->
+    <section class="login spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30">
+                    <div class="profile-photo">
+                        <a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a>
+                        <img src="<%- global.image -%>" alt="" class="avatar-photo">
+                        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body pd-5">
+                                        <div class="img-container">
+                                            <img id="image" src="<%- global.image -%>" alt="Picture">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form action="/users/update" method="POST" enctype="multipart/form-data">
+                                            <div class="modal-content">
+                                            <input type="file" class="form-control" id="image" name="image">
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary" id="sendPictureButton">Update</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </form>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p/>
+                    <div class="profile-info">
+                        <h5 class="mb-20 h5 text-white">User Information</h5><p/>
+                        <ul>
+                            <li>
+                                <span>Email Address:</span>
+                                <i style="color:orange"><%- global.mail -%></i>
+                            </li>
+                            <li>
+                                <span>Name:</span>
+                                <i style="color:orange"><%- global.name -%></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    
+                <div class="col-lg-6">
+                    <div class="profile-skills">
+                        <h5 class="mb-20 h5 text-white">Ranking</h5>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img src="/img/anime/review-1.jpg" alt="" style="width: 250px; height: 270px; margin: 10px 0px; ">
+                                <h5>5위</h5>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="/img/anime/review-1.jpg" alt="" style="width: 250px; height: 270px; margin: 10px 0px;">
+                                <h5>5위</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product__pagination">
+                        <a href="#" class="current-page">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#"><i class="fa fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- My page Section End -->
+    
+    <%- include('layouts/footer'); -%>
+    <%- include('layouts/scripts'); -%>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "anime-main",
+  "version": "1.0.0",
+  "description": "Thank you for using our template!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alextn00/WEB_TEAM11.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alextn00/WEB_TEAM11/issues"
+  },
+  "homepage": "https://github.com/alextn00/WEB_TEAM11#readme"
+}

@@ -1,0 +1,41 @@
+h2 {
+    margin-left: 85px;
+    font-family:Verdana;
+}
+
+#board {
+    display: inline;
+    margin: auto;
+    background-color: whitesmoke;
+    border: 10px solid black;
+}
+
+table {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+td {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#next {
+    background-color: whitesmoke;
+    border:5px solid black;
+    border-radius: 5px;
+}
+
+#playbutton {
+    width: 120px;
+    height: 50px;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: bold;
+    border: 2px solid gray;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+}
