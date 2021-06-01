@@ -111,7 +111,7 @@ app.get('/auth/login', redirectIfAuthenticatedMiddleware, loginController)
 
 app.get('/auth/signup', redirectIfAuthenticatedMiddleware, newUserController)
 
-app.get('/mypage', reviseMiddleware, newPictureController)
+app.get('/mypage', authMiddleware, reviseMiddleware, newPictureController)
 
 app.get('/posts/new', authMiddleware, newPostController)
 
