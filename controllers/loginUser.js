@@ -11,10 +11,10 @@ module.exports = (req, res) =>{
                     req.session.userId=user._id
                     global.mail = user.mail
                     global.name = user.name
-                    global.image = user.image;
                     if(!user.image) {
                         user.image = "/img/photo1.jpg"
                     }
+                    global.image = user.image;
                     res.redirect('/auth/login')
                 }
                 else{
