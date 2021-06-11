@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html style="background-color:rgb(222, 222, 245)">
+
+    <script src="/js/baseball2.js"></script>
+    <body>
+        <div class="container">
+            <hr>
+    
+            <h3 align="center" style="color:rgb(247, 162, 162); text-shadow: 1px 1px #bbb;">▶number baseball◀</h3>
+            <hr>
+            <div align="center" id="question"> <br>4개의 숫자를 생각해주세요!<br> 컴퓨터가 당신의 수를 맞출겁니다! <br>단, <span
+                    style="color:blue">중복되는 수</span>는 불가능합니다!<br><br> </div>
+            <div id="result" align="center"></div><br>
+            <form id="answer_form" align="center" action="submit">
+                <input id="strike" type="text"> strike (0~4만 입력) <br><br>
+                <input id="ball" type="text"> ball (0~4만 입력) <br><br>
+                <button>submit</button>
+            </form>
+            <br>
+            <div align="center">
+                <span>컴퓨터 추측 횟수:</span>
+                <span id="predict" style="color:red">1번</span>
+                &nbsp;&nbsp;&nbsp;<button onClick="window.location.reload()">다시하기</button>
+            </div>
+    
+            <script>
+    
+                var question = document.getElementById('question');
+                var result = document.getElementById('result');
+                var answer_form = document.getElementById('answer_form');
+                var strike = document.getElementById('strike');
+                var ball = document.getElementById('ball'); //스트라이크, 볼 횟수
+                var predict = document.getElementById('predict'); //몇 번 했는지
+                var predict_number = 1; // predict 숫자 체크
+                var b, c, d, e; //예측 숫자 1,2,3,4번째 자리
+                var count = 5040; // 모든 경우의 수
+                var arr = new Array(10); // 4개 배열 초기 할당
+            
+                init_arr();
+                random_number();
+                strike.focus(); ball.focus();
+    
+                answer_form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+    
+                    for (i = 0; i < 10; i++)
+                        for (j = 0; j < 10; j++)
+                            for (k = 0; k < 10; k++)
+                                for (l = 0; l < 10; l++) {
+                                    if (strike.value == 3 && ball.value == 0) {
+                                        if ((i == b && j == c && k == d) || (i == b && j == c && l == e) || (i == b && k == d && l == e) || (j == c && k == d && l == e))
+                                            ;
+                                        else if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0) {
+                                            count--;
+                                            arr[i][j][k][l] = 0;
+                                        }
+                                    }
+                                    else if (strike.value == 2 && ball.value == 0) {
+                                        for (l = 0; l < 10; l++) {
+                                            if ((i == b && j == c && k != d && k != e && l != d && l != e) || (i == b && k == d && j != c && j != e && l != c && l != e) || (i == b && l == e && j != c && j != d && k != c && k != d)
+                                                || (j == c && k == d && i != b && i != e && l != b && l != e) || (j == c && l == e && i != b && i != d && k != b && k != d) || (k == d && l == e && i != b && i != c && j != b && j != c))
+                                                ;
+                                            else
+                                                if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0) {
+                                                    count--;
+                                                    arr[i][j][k][l] = 0;
+                                                }
+                                        }
+                                    }
+                                    else if (strike.value == 2 && ball.value == 1) {
+                                        if ((i == b && j == c && ((k == e && l != d) || (k == d && l != e)))
+                                            || (i == b && k == d && ((j == e && l != c) || (l == c && j != e)))
+                                            || (i == b && l == e && ((j == d && k != c) || (k == c && j != d)))
+                                            || (j == c && k == d && ((i == e && l != b) || (l == b && i != e)))
+                                            || (j == c && l == e && ((i == d && k != b) || (k == b && i != d)))
+                                            || (k == d && l == e && ((i == c && j != b) || (j == b && i != c))))
+                                            ;
+                                        else
+                                            if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0) {
+                                                count--;
+                                                arr[i][j][k][l] = 0;
+                                            }
+                                    }
+                                    else if (strike.value == 2 && ball.value == 2) {
+                                        if ((i == b && j == c && k == e && l == d) || (i == b && k == d && j == e && l == c)
+                                            || (i == b && l == e && j == d && k == c) || (j == c && k == d && i == e && l == b)
+                                            || (j == c && l == e && i == d && k == b) || (k == d && l == e && i == c && j == b))
+                                            ;
+                                        else
+                                            if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0)
+                                                arr[i][j][k][l] = 0;
+                                    }
+                                    else if (strike.value == 1 && ball.value == 0) {
+                                        if (((i == b) && (j != c && j != d && j != e && k != c && k != d && k != e && l != c && l != d && l != e))
+                                            || ((j == c) && (i != b && i != d && i != e && k != b && k != d && k != e && l != b && l != d && l != e))
+                                            || ((k == d) && (i != b && i != c && i != e && j != b && j != c && j != e && l != b && l != c && l != e))
+                                            || ((l == e) && (i != b && i != c && i != d && j != b && j != c && j != d && k != b && k != c && k != d)))
+                                            ;
+                                        else
+                                            if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0) {
+                                                count--;
+                                                arr[i][j][k][l] = 0;
+                                            }
+                                    }
+                                    else if (strike.value == 1 && ball.value == 1) {
+                                        if ((i == b && (j == d || j == e || k == c || k == e || l == c || l == d) && ((k != c && k != d && k != e && l != c && l != d && l != e) || (j != c && j != d && j != e && l != c && l != d && l != e) || (j != c && j != d && j != e && k != c && k != d && k != e)))
+                                            || (j == c && (i == d || i == e || k == b || k == e || l == b || l == d) && ((i != b && i != d && i != e && k != b && k != d && k != e) || (i != b && i != d && i != e && l != b && l != d && l != e) || (k != b && k != d && k != e && l != b && l != d && l != e)))
+                                            || (k == d && (i == c || i == e || j == b || j == e || l == b || l == c) && ((i != b && i != c && i != e && j != b && j != c && j != e) || (i != b && i != c && i != e && l != b && l != c && l != e) || (j != b && j != c && j != e && l != b && l != c && l != e)))
+                                            || (l == e && (i == c || i == d || j == b || j == d || k == b || k == c) && ((i != b && i != c && i != d && j != b && j != c && j != d) || (i != b && i != c && i != d && k != b && k != c && k != d) || (j != b && j != c && j != d && k != b && k != c && k != d))))
+                                            ;
+                                        else
+                                            if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0) {
+                                                count--;
+                                                arr[i][j][k][l] = 0;
+                                            }
+                                    }
+                                    else if (strike.value == 1 && ball.value == 2) {
+                                        if ((i == b && (((j == d || j == e) && (k == c || k == e)) || ((j == d || j == e) && (l == c || l == d)) || ((k == c || k == e) && (l == c || l == d))) && ((j != c && j != d && j != e) || (k != c && k != d && k != e) || (l != c && l != d && l != e)))
+                                            || (j == c && (((i == d || i == e) && (k == b || k == e)) || ((i == d || i == e) && (l == b || l == d)) || ((k == b || k == e) && (l == b || l == d))) && ((i != b && i != d && i != e) || (k != b && k != d && k != e) || (l != b && l != d && l != e)))
+                                            || (k == d && (((i == c || i == e) && (j == b || j == e)) || ((i == c || i == e) && (l == b || l == c)) || ((j == b || j == e) && (l == b || l == c))) && ((i != b && i != c && i != e) || (j != b && j != c && j != e) || (l != b && l != c && l != e)))
+                                            || (l == e && (((i == c || i == d) && (j == b || j == d)) || ((i == c || i == d) && (k == b || k == c)) || ((j == b || j == d) && (k == b || k == c))) && ((i != b && i != c && i != d) || (j != b && j != c && j != d) || (k != b && k != c && k != d))))
+                                            ;
+                                        else if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0) {
+                                            count--;
+                                            arr[i][j][k][l] = 0;
+                                        }
+                                    }
+                                    else if (strike.value == 1 && ball.value == 3) {
+                                        if ((i == b && ((j == d || j == e) && (k == c || k == e) && (l == c || l == d)))
+                                            || (j == c && (i == d || i == e) && (k == b || k == e) && (l == b || l == d))
+                                            || (k == d && ((j == b || j == e) && (i == c || i == e) && (l == b || l == c)))
+                                            || (l == e && ((j == b || j == d) && (k == b || k == c) && (i == c || i == d))))
+                                            ;
+                                        else
+                                            if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0) {
+                                                count--;
+                                                arr[i][j][k][l] = 0;
+                                            }
+                                    }
+                                    else if (strike.value == 0 && ball.value == 0) {
+                                        if ((i != b && i != c && i != d && i != e) && (j != b && j != c && j != d && j != e) && (k != b && k != c && k != d && k != e) && (l != b && l != c && l != d && l != e))
+                                            ;
+                                        else if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0) {
+                                            count--;
+                                            arr[i][j][k][l] = 0;
+                                        }
+                                    }
+                                    else if (strike.value == 0 && ball.value == 1) {
+                                        if (((i == c || i == d || i == e) && (j != b && j != c && j != d && j != e && k != b && k != c && k != d && k != e && l != b && l != c && l != d && l != e))
+                                            || ((j == b || j == d || j == e) && (i != b && i != c && i != d && i != e && k != b && k != c && k != d && k != e && l != b && l != c && l != d && l != e))
+                                            || ((k == b || k == c || k == e) && (j != b && j != c && j != d && j != e && i != b && i != c && i != d && i != e && l != b && l != c && l != d && l != e))
+                                            || ((l == b || l == c || l == d) && (j != b && j != c && j != d && j != e && k != b && k != c && k != d && k != e && i != b && i != c && i != d && i != e))
+                                        )
+                                            ;
+                                        else if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0) {
+                                            count--;
+                                            arr[i][j][k][l] = 0;
+                                        }
+                                    }
+                                    else if (strike.value == 0 && ball.value == 2) {
+                                        if (((i == c || i == d || i == e) && (j == b || j == d || j == e) && (k != b && k != c && k != d && k != e) && (l != b && l != c && l != d && l != e)) || ((i == c || i == d || i == e) && (k == b || k == c || k == e) && (j != b && j != c && j != d && j != e) && (l != b && l != c && l != d && l != e))
+                                            || ((i == c || i == d || i == e) && (l == b || l == c || l == d) && (k != b && k != c && k != d && k != e) && (j != b && j != c && j != d && j != e)) || ((j == b || j == d || j == e) && (k == b || k == c || k == e) && (i != b && i != c && i != d && i != e) && (l != b && l != c && l != d && l != e))
+                                            || ((j == b || j == d || j == e) && (l == b || l == c || l == d) && (i != b && i != c && i != d && i != e) && (k != b && k != c && k != d && k != e)) || ((k == b || k == c || k == e) && (l == b || l == c || l == d) && (i != b && i != c && i != d && i != e) && (j != b && j != c && j != d && j != e)))
+                                            ;
+                                        else if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0) {
+                                            count--;
+                                            arr[i][j][k][l] = 0;
+                                        }
+                                    }
+                                    else if (strike.value == 0 && ball.value == 3) {
+                                        if (((i == c || i == d || i == e) && (j == b || j == d || j == e) && (k == b || k == c || k == e) && (l != b && l != c && l != d && l != e))
+                                            || ((l == b || l == c || l == d) && (j == b || j == d || j == e) && (k == b || k == c || k == e) && (i != b && i != c && i != d && i != e))
+                                            || ((i == c || i == d || i == e) && (l == b || l == c || l == d) && (k == b || k == c || k == e) && (j != b && j != c && j != d && j != e))
+                                            || ((i == c || i == d || i == e) && (j == b || j == d || j == e) && (l == b || l == c || l == d) && (k != b && k != c && k != d && k != e))
+                                        )
+                                            ;
+                                        else
+                                            if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0) {
+                                                count--;
+                                                arr[i][j][k][l] = 0;
+                                            }
+                                    }
+                                    else if (strike.value == 0 && ball.value == 4) {
+                                        if ((i == c || i == d || i == e) && (j == b || j == d || j == e) && (k == b || k == c || k == e) && (l == b || l == c || l == d))
+                                            ;
+                                        else if (arr[i][j][k][l] != -1 && arr[i][j][k][l] != 0) {
+                                            count--;
+                                            arr[i][j][k][l] = 0;
+                                        }
+                                    }
+                                    else if (strike.value == 4 && ball.value == 0) {
+                                        result.textContent = "제가 맞췄습니다!";
+                                        sleep(10000);
+                                    }
+                                    else {
+                                        question.textContent = "잘못된 수를 입력하셨습니다. 다시하기를 클릭해주세요";
+                                        sleep(10000);
+                                    }
+    
+                                }
+                    strike.focus(); ball.focus();
+                    random_number();
+                    predict.textContent = (++predict_number) + '번';
+    
+                })
+    
+            </script>
+    
+    
+        </div>
+    </body>
+        
+        
+</html>

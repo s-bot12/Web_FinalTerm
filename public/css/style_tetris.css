@@ -28,14 +28,27 @@ td {
 }
 
 #playbutton {
-    width: 120px;
+    width: 100px;
     height: 50px;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 25px;
     font-weight: bold;
     border: 2px solid gray;
-    border-radius: 5px;
+    border-radius: 1px;
+    background-color: white;
+    cursor: pointer;
+}
+
+#rankbutton {
+    width: 90px;
+    height: 50px;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid gray;
+    border-radius: 1px;
     background-color: white;
     cursor: pointer;
 }

@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = (req,res)=>{ 
     let image;
     if(!(req.files && req.files.image)) {
-        image = 10;
+        image = 10; //default
         image.name = "logo.png";
     }
     else {
@@ -17,7 +17,7 @@ module.exports = (req,res)=>{
         image: '/img/' + image.name,
         userid: req.session.userId,
         username: global.name,
-        numId: global.num,
+        numId: global.num
     })
     res.redirect('/community')
 

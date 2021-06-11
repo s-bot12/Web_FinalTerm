@@ -1,189 +1,196 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-    <%- include('layouts/header'); -%>
+<%- include('layouts/header'); -%>
 
 
-<body>
+    <body>
 
-    <%- include('layouts/bar'); -%>
+        <%- include('layouts/bar'); -%>
 
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
-
-    <!-- Normal Breadcrumb Begin -->
-    <section class="normal-breadcrumb set-bg" data-setbg="/img/normal-breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="normal__breadcrumb__text">
-                        <h2>Community</h2>
-                        <p>Welcome to the Coummunity.</p>
-                    </div>
-                </div>
+            <!-- Page Preloder -->
+            <div id="preloder">
+                <div class="loader"></div>
             </div>
-        </div>
-    </section>
-    <!-- Normal Breadcrumb End -->
 
-    <!-- Community Section Begin -->
-    <section class="community spad">
-        <div class="container">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <!-- <a class="nav-link" data-bs-toggle="tab" href="#notice">Notice</a> -->
-                    <button class="nav-link" name="notice" data-bs-toggle="tab" onclick="openTab(event,'notice')">Notice</button>
-                </li>
-                <li class="nav-item">
-                    <!-- <a class="nav-link active" data-bs-toggle="tab" href="#board">Board</a>-->
-                    <button class="nav-link active" name="board" data-bs-toggle="tab" onclick="openTab(event,'board')">Board</button>
-                </li>
-                <li class="nav-item">
-                    <!-- <a class="nav-link" data-bs-toggle="tab" href="#notice">Notice</a> -->
-                    <button class="nav-link" name="game" data-bs-toggle="tab" onclick="openTab(event,'game')">Game</button>
-                </li>
-            </ul>
-            <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade active show" id="notice" style="display: none;">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Title</th>
-                                <th>User</th>
-                                <th>Date</th>
-                                <th>View</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>5</td>
-                                <td>title1</td>
-                                <td>user1</td>
-                                <td>date1</td>
-                                <td>view1</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>title1</td>
-                                <td>user1</td>
-                                <td>date1</td>
-                                <td>view1</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>title1</td>
-                                <td>user1</td>
-                                <td>date1</td>
-                                <td>view1</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>title1</td>
-                                <td>user1</td>
-                                <td>date1</td>
-                                <td>view1</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>title1</td>
-                                <td>user1</td>
-                                <td>date1</td>
-                                <td>view1</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="col-lg-12">
-                        <button type="submit" class="site-btn write-btn">Writing</button>
+
+            <!-- Normal Breadcrumb Begin -->
+            <section class="normal-breadcrumb set-bg" data-setbg="/img/banner.png">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="normal__breadcrumb__text">
+                                <h2>Community</h2>
+                                <p>Welcome to the Game Coummunity.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="tab-pane fade active show" id="board">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Title</th>
-                                <th>User</th>
-                                <th>Date</th>
-                                <th>Views</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% for (var i = postupload.length - 1; i >= 0; i--) { %>
-                            <tr>
-                                
-                                <td><%= postupload[i].numId %></td>
-                                <td><a href="/post/<%= postupload[i]._id %>"><%= postupload[i].title %></a></td>
-                                <td><%= postupload[i].username %></td>
-                                <td><%= postupload[i].datePosted.toDateString() %></td>
-                                <td><%= postupload[i].views %></td>
+            </section>
+            <!-- Normal Breadcrumb End -->
 
-                            </tr>
-                            <% } %>
-                        </tbody>
-                    </table>
-                    <div class="col-lg-12" style="text-align: end;">
-                        <a href="/posts/new"><button type="submit" class="site-btn">Writing</button></a>
-                    </div>
-                </div>
-                <div class="tab-pane fade active show" id="game" style="display: none;">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Title</th>
-                                <th>User</th>
-                                <th>Date</th>
-                                <th>Views</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>title1</td>
-                                    <td>user1</td>
-                                    <td>date1</td>
-                                    <td>view1</td>
-                                </tr>
-                        </tbody>
-                    </table>
-                    <div class="col-lg-12">
-                        <a href="/posts/new"><button type="submit" class="site-btn write-btn">Writing</button></a>
-                    </div>
-                </div>
-            </div>
-            <div class="product__pagination">
-                <a href="#" class="current-page">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#"><i class="fa fa-angle-double-right"></i></a>
-            </div>
-            <script>
-                function openTab(evt, tabName) {
-                  var i, tabcontent, navlinks;
-                  tabcontent = document.getElementsByClassName("tab-pane fade active show");
-                  for (i = 0; i < tabcontent.length; i++) {
-                    tabcontent[i].style.display = "none"
-                  }
-                  navlinks = document.getElementsByClassName("nav-link active");
-                  for (i = 0; i < navlinks.length; i++) {
-                    navlinks[i].className = navlinks[i].className.replace(" active", "");
-                  }
-                  document.getElementById(tabName).style.display = "block";
-                  evt.currentTarget.className += " active";
-                }
-            </script>
-        </div>
-    </section>
-    <!-- Community Section End -->
+            <!-- Community Section Begin -->
+            <section class="community spad">
+                <div class="container">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <!-- <a class="nav-link" data-bs-toggle="tab" href="#notice">Notice</a> -->
+                            <button class="nav-link" name="notice" data-bs-toggle="tab"
+                                onclick="openTab(event,'notice')">Notice</button>
+                        </li>
+                        <li class="nav-item">
+                            <!-- <a class="nav-link active" data-bs-toggle="tab" href="#board">Board</a>-->
+                            <button class="nav-link" name="board" data-bs-toggle="tab"
+                                onclick="openTab(event,'board')">Board</button>
+                        </li>
+                        <li class="nav-item">
+                            <!-- <a class="nav-link" data-bs-toggle="tab" href="#notice">Notice</a> -->
+                            <button class="nav-link active" name="game" data-bs-toggle="tab"
+                                onclick="openTab(event,'game')">Game</button>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active show" id="notice" style="display: none;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Title</th>
+                                        <th>User</th>
+                                        <th>Date</th>
+                                        <th>View</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="color:orange">
+                                        <td>1</td>
+                                        <td style="text-align:center;">21.06.11 공지사항</td>
+                                        <td>admin</td>
+                                        <td>Fri Jun 11 2021</td>
+                                        <td>30</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade active show" id="board" style="display: none;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Title</th>
+                                        <th>User</th>
+                                        <th>Date</th>
+                                        <th>Views</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (var i=postupload.length - 1; i>= 0; i--) { %>
+                                        <tr>
 
-    <%- include('layouts/footer'); -%>
-    <%- include('layouts/scripts'); -%>
-</body>
+                                            <td>
+                                                <%= postupload[i].numId %>
+                                            </td>
+                                            <td style="text-align:center;"><a href="/post/<%= postupload[i]._id %>">
+                                                    <%= postupload[i].title %>
+                                                </a></td>
+                                            <td>
+                                                <%= postupload[i].username %>
+                                            </td>
+                                            <td>
+                                                <%= postupload[i].datePosted.toDateString() %>
+                                            </td>
+                                            <td>
+                                                <%= postupload[i].views %>
+                                            </td>
+
+                                        </tr>
+                                        <% } %>
+                                </tbody>
+                            </table>
+                            <div class="col-lg-12" style="text-align: end;">
+                                <a href="/posts/new"><button type="submit" class="site-btn">Writing</button></a>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade active show" id="game" >
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Title</th>
+                                        <th>User</th>
+                                        <th>Date</th>
+                                        <th>Views</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>5</td>
+                                        <td style="text-align:center;"><a href="/game/baseball2">baseball game2</a></td>
+                                        <td>user13</td>
+                                        <td>Fri Jun 14 2021</td>
+                                        <td>44</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td style="text-align:center;"><a href="/game/memory">memory_game</a></td>
+                                        <td>test454</td>
+                                        <td>Fri Jun 13 2021</td>
+                                        <td>80</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td style="text-align:center;"><a href="/game/mole">mole game!!</a></td>
+                                        <td>pigman11</td>
+                                        <td>Fri Jun 12 2021</td>
+                                        <td>99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td style="text-align:center;"><a href="/game/2048">2048</a></td>
+                                        <td>pigman11</td>
+                                        <td>Fri Jun 11 2021</td>
+                                        <td>127</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td style="text-align:center;"><a href="/game/baseball">baseball game</a></td>
+                                        <td>user13</td>
+                                        <td>Fri Jun 11 2021</td>
+                                        <td>152</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="product__pagination">
+                        <a href="#" class="current-page">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#"><i class="fa fa-angle-double-right"></i></a>
+                    </div>
+                    <script>
+                        function openTab(evt, tabName) {
+                            var i, tabcontent, navlinks;
+                            tabcontent = document.getElementsByClassName("tab-pane fade active show");
+                            for (i = 0; i < tabcontent.length; i++) {
+                                tabcontent[i].style.display = "none"
+                            }
+                            navlinks = document.getElementsByClassName("nav-link active");
+                            for (i = 0; i < navlinks.length; i++) {
+                                navlinks[i].className = navlinks[i].className.replace(" active", "");
+                            }
+                            document.getElementById(tabName).style.display = "block";
+                            evt.currentTarget.className += " active";
+                        }
+                    </script>
+                </div>
+            </section>
+            <!-- Community Section End -->
+
+            <%- include('layouts/footer'); -%>
+                <%- include('layouts/scripts'); -%>
+    </body>
 
 </html>

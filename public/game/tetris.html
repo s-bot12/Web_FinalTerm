@@ -21,8 +21,15 @@
         </tr>
         <tr>
             <td><button id="playbutton" onclick="playButtonClicked();">Play</button></td>
+            <form action="/rank/new" method="post" enctype="multipart/form-data">
+                <input type="hidden" id="point" name="point">
+                <input type="hidden" id="gameName" name="gameName" value="tetris">
+                <td><button id="rankbutton" onclick="saveButtonClicked();" type="submit" style="display:none">Save Rank</button></td>
+            </form>
         </tr>
+        
     </table>
+
     <script src='/js/tetris.js'></script>
     <script src='/js/controller.js'></script>
     <script src='/js/render.js'></script>

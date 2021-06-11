@@ -1,11 +1,11 @@
 {
   "title": "Clean Blog",
-  "name": "startbootstrap-clean-blog",
-  "version": "5.0.10",
+  "name": "anime-main",
+  "version": "1.0.0",
   "scripts": {
     "start": "node index.js"
   },
-  "description": "Clean Blog is a Medium inspired blog theme for Bootstrap.",
+  "description": "Thank you for using our template!",
   "keywords": [
     "css",
     "sass",
@@ -14,12 +14,11 @@
     "theme",
     "template"
   ],
-  "homepage": "https://startbootstrap.com/theme/clean-blog",
+  "homepage": "https://github.com/alextn00/WEB_TEAM11#readme",
   "bugs": {
-    "url": "https://github.com/StartBootstrap/startbootstrap-clean-blog/issues",
-    "email": "feedback@startbootstrap.com"
+    "url": "https://github.com/alextn00/WEB_TEAM11/issues"
   },
-  "license": "MIT",
+  "license": "ISC",
   "engines": {
     "node": "14.15.4"
   },
@@ -29,7 +28,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StartBootstrap/startbootstrap-clean-blog.git"
+    "url": "git+https://github.com/alextn00/WEB_TEAM11.git"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.1",

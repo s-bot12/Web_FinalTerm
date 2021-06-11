@@ -12,6 +12,6 @@ module.exports = (req, res) =>{
         return res.render("writepost");
     }
   
-    res.redirect('/auth/login')
+    res.redirect('/login')
 }
 

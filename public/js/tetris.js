@@ -26,10 +26,28 @@ var colors = [
     'cyan', 'orange', 'blue', 'yellow', 'red', 'green', 'purple'
 ];
 
+
+
 var scoreSpan = document.getElementById('score');
 
 var score = 0;
 var clearCnt;
+
+window.addEventListener('keydown', (e) => {
+    if (e.target.localName != 'input') {   // if you need to filter <input> elements
+        switch (e.keyCode) {
+            case 38: // up
+            case 40: // down
+                e.preventDefault();
+                break;
+            default:
+                break;
+        }
+    }
+}, {
+    capture: true,   // this disables arrow key scrolling in modern Chrome
+    passive: false   // this is optional, my code works without it
+});
 
 // creates a new 4x4 shape in global variable 'current'
 // 4x4 so as to cover the size when the shape is rotated
@@ -159,9 +177,6 @@ function updateScore() {
     else if (clearCnt == 4) {
         score += 800;
     }
-    else {
-
-    }
     scoreSpan.innerHTML = score;
 }
 
@@ -219,6 +234,7 @@ function valid(offsetX, offsetY, newCurrent) {
                     if (offsetY == 1 && freezed) {
                         lose = true; // lose if the current shape is settled at the top most row
                         document.getElementById('playbutton').disabled = false;
+                        document.getElementById("rankbutton").style.display="block";
                         drawGameOver();
                     }
                     return false;
@@ -232,6 +248,12 @@ function valid(offsetX, offsetY, newCurrent) {
 function playButtonClicked() {
     newGame();
     document.getElementById("playbutton").disabled = true;
+    document.getElementById("rankbutton").style.display="none";
+}
+
+function saveButtonClicked() {
+    var point;
+    document.getElementById("point").value = score;
 }
 
 function newGame() {

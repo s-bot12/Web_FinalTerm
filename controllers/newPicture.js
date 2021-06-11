@@ -1,7 +1,12 @@
-const User = require('../models/User.js')
+const Rank = require('../models/Rank.js')
 
-module.exports = (req,res)=>{ 
-    res.render('mypage')
+module.exports = async (req, res) => {
+
+    const rank = await Rank.findOne({ name: global.name }, {}, { sort: { 'point': -1 } })
+
+    res.render('mypage', {
+        rank
+    })
 }
 
 

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+    <%- include('layouts/header'); -%>
+
+
+<body>
+
+    <%- include('layouts/bar'); -%>
+
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
+    
+        <!-- Breadcrumb Begin -->
+        <div class="breadcrumb-option">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb__links">
+                            <a href="/"><i class="fa fa-home"></i> Home </a>
+                            <span>Ranking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+    
+        <!-- Product Section Begin -->
+        <section class="product-page spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="trending__product">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-8">
+                                    <div class="section-title">
+                                        <h4>Ranking</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="product__item">
+                                        <div class="product__item__pic__sm set-bg" data-setbg="/img/game/game5.png">
+                                        </div>
+                                        <div class="product__item__text">
+                                            <h5><a href="#">HexGL</a></h5>
+                                            <table class="rank_table">
+                                                <tr><th>Ranking</th>
+                                                    <th style="color:rgb(221, 118, 118)">&nbsp;&nbsp;1</th>
+                                                    <td style="color:rgb(221, 118, 118)">test1</td>
+                                                    <td style="color:rgb(221, 118, 118)">37</td>
+                                                </tr>
+                                                <tr><th></th>
+                                                    <th>&nbsp;&nbsp;2</th>
+                                                    <td>mineman</td>
+                                                    <td>25</td>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>&nbsp;&nbsp;3</th>
+                                                    <td>japy</td>
+                                                    <td>17</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="product__item">
+                                        <a href="/rank/get">
+                                        <div class="product__item__pic__sm set-bg" data-setbg="/img/game/game0.png">
+                                        </div>
+                                        </a>
+                                        <div class="product__item__text">
+                                            <h5><a href="/rank/get">Tetris</a></h5>
+                                            <table class="rank_table">
+                                                <tr><th>Ranking</th>
+                                                    <% for (var i = 0; i < rank.length; i++) { %>
+                                                        <% if (i >= 3) continue; %>
+                                                        <% if (i == 0) { %>                                        
+                                                            <th style="color:rgb(221, 118, 118)">&nbsp;&nbsp;<%= i+1 %></th>
+                                                            <td style="color:rgb(221, 118, 118)"><%= rank[i].name %></td>
+                                                            <td style="color:rgb(221, 118, 118)"><%= rank[i].point %></td>
+                                                        <% continue; } %>
+                                                        <tr><th></th>
+                                                            <th>&nbsp;&nbsp;<%= i+1 %></th>
+                                                            <td><%= rank[i].name %></td>
+                                                            <td><%= rank[i].point %></td>                                                       
+                                                        </tr>
+                                                    <% } %>
+
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="product__item">
+                                        <div class="product__item__pic__sm set-bg" data-setbg="/img/game/game22.png">
+                                        </div>
+                                        <div class="product__item__text">
+                                            <h5><a href="#">HTML5 Bird</a></h5>
+                                            <table class="rank_table">
+                                                <tr><th>Ranking</th>
+                                                    <th style="color:rgb(221, 118, 118)">&nbsp;&nbsp;1</th>
+                                                    <td style="color:rgb(221, 118, 118)">test1</td>
+                                                    <td style="color:rgb(221, 118, 118)">752</td>
+                                                </tr>
+                                                <tr><th></th>
+                                                    <th>&nbsp;&nbsp;2</th>
+                                                    <td>bee123</td>
+                                                    <td>608</td>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>&nbsp;&nbsp;3</th>
+                                                    <td>pianoman</td>
+                                                    <td>601</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="product__item">
+                                        <div class="product__item__pic__sm set-bg" data-setbg="/img/game/game20.png">
+                                        </div>
+                                        <div class="product__item__text">
+                                            <h5><a href="#">Clumsy Bird</a></h5>
+                                            <table class="rank_table">
+                                                <tr><th>Ranking</th>
+                                                    <th style="color:rgb(221, 118, 118)">&nbsp;&nbsp;1</th>
+                                                    <td style="color:rgb(221, 118, 118)">test1</td>
+                                                    <td style="color:#dd7676">6</td>
+                                                </tr>
+                                                <tr><th></th>
+                                                    <th>&nbsp;&nbsp;2</th>
+                                                    <td>test2</td>
+                                                    <td>4</td>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>&nbsp;&nbsp;3</th>
+                                                    <td>mineman</td>
+                                                    <td>1</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="product__item">
+                                        <div class="product__item__pic__sm set-bg" data-setbg="/img/game/game21.png">
+                                        </div>
+                                        <div class="product__item__text">
+                                            <h5><a href="#">Gold Digger</a></h5>
+                                            <table class="rank_table">
+                                                <tr><th>Ranking</th>
+                                                    <th style="color:rgb(221, 118, 118)">&nbsp;&nbsp;1</th>
+                                                    <td style="color:rgb(221, 118, 118)">japy</td>
+                                                    <td style="color:rgb(221, 118, 118)">120</td>
+                                                </tr>
+                                                <tr><th></th>
+                                                    <th>&nbsp;&nbsp;2</th>
+                                                    <td>test2</td>
+                                                    <td>87</td>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>&nbsp;&nbsp;3</th>
+                                                    <td>test3</td>
+                                                    <td>60</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="product__item">
+                                        <div class="product__item__pic__sm set-bg" data-setbg="/img/game/game2.png">
+                                        </div>
+                                        <div class="product__item__text">
+                                            <h5><a href="#">Pseudo 3D Racer</a></h5>
+                                            <table class="rank_table">
+                                                <tr><th>Ranking</th>
+                                                    <th style="color:rgb(221, 118, 118)">&nbsp;&nbsp;1</th>
+                                                    <td style="color:rgb(221, 118, 118)">bee123</td>
+                                                    <td style="color:rgb(221, 118, 118)">48</td>
+                                                </tr>
+                                                <tr><th></th>
+                                                    <th>&nbsp;&nbsp;2</th>
+                                                    <td>test1</td>
+                                                    <td>27</td>
+                                                </tr>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>&nbsp;&nbsp;3</th>
+                                                    <td>mineman</td>
+                                                    <td>7</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="product__pagination">
+                            <a href="#" class="current-page">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#"><i class="fa fa-angle-double-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Product Section End -->
+
+
+    <%- include('layouts/footer'); -%>
+    <%- include('layouts/scripts'); -%>
+
+</body>
+
+</html>
