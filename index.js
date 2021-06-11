@@ -25,7 +25,7 @@ const storePictureController = require('./controllers/storePicture')
 
 const validateMiddleware = require("./middleware/validateMiddleware");
 
-mongoose.connect('mongodb+srv://lkns0989:lkns0907@cluster0.7tm1y.mongodb.net/test', {useCreateIndex:true, useUnifiedTopology:true, useNewUrlParser: true})
+mongoose.connect('mongodb+srv://lkns0989:lkns0907@cluster0.7tm1y.mongodb.net/test1', {useCreateIndex:true, useUnifiedTopology:true, useNewUrlParser: true})
 //mongoose.connect('mongodb://localhost/test_database', {useCreateIndex:true, useUnifiedTopology:true, useNewUrlParser: true})
 const db = mongoose.connection
 db.once('open', () => {
