@@ -815,7 +815,7 @@ label {
 	display: inline-block;
 }
 
-.product__item__text h5 a {
+.product__item__text h5 {
 	color: #ffffff;
 	font-weight: 700;
 	line-height: 26px;
@@ -1590,6 +1590,10 @@ label {
 	color: rgb(219, 219, 219);
 	border: 1px 0px solid #ffffff;
 	margin-bottom: 35px;
+}
+
+.community table td a{
+	color: rgb(219, 219, 219);
 }
 
 .community table th {

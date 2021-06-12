@@ -4,6 +4,15 @@
 @import url(https://fonts.googleapis.com/css2?family=Antonio:wght@200&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap);
 
+html {
+    text-align: center;
+    box-sizing: border-box;
+    background:seashell;
+    font-family: 'Do Hyeon', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
 .title{
     margin-top: 50px;
     padding: -10%;

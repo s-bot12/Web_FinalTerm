@@ -1592,6 +1592,10 @@ label {
 	margin-bottom: 35px;
 }
 
+.community table td a{
+	color: rgb(87, 87, 87);
+}
+
 .community table th {
 	color: #000;
 	border: 2px 0px 1px solid #cacaca;
@@ -2709,6 +2713,7 @@ label {
 }
 
 .darklabel {
+	background-color: black;
 	display: flex;
 	height: 25px;
 	border-radius: 50px;
@@ -2719,6 +2724,7 @@ label {
 	padding: 0 15px;
 	transition: all .5s ease-in-out;
 	cursor: pointer;
+	border: 2px solid black;
 }
 .darklabel .fa-moon {
 	color: rgb(255, 255, 255);

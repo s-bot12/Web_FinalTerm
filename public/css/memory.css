@@ -8,7 +8,8 @@ body{
     font-family: 'Do Hyeon', sans-serif;
     background-color: azure;
     width: 450px; 
-    margin-left: 37%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .title{
     position: relative;
