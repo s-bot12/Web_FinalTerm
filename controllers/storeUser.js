@@ -6,7 +6,7 @@ module.exports = (req,res)=>{
     User.create(req.body, (error, user) => {
         if(error) {
 
-            return res.redirect('/login')
+            return res.render('login', {pass : '5'})
         }
         else {
 
@@ -17,7 +17,7 @@ module.exports = (req,res)=>{
                 point: 0,
                 gameName: 'tetris'
             })
-            res.redirect('/')
+            res.render('login', {pass : '6'})
         }
     })
 }
