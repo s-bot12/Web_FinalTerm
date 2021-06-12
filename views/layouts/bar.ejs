@@ -8,20 +8,31 @@
                     </a>
                 </div>
             </div>
+
+            <script>
+                $(function(){
+                var sBtn = $("ul > li");    //  ul > li 이를 sBtn으로 칭한다. (클릭이벤트는 li에 적용 된다.)
+                    sBtn.find("a").click(function(){   // sBtn에 속해 있는  a 찾아 클릭 하면.
+                    sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
+                    $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
+                    })
+                })
+            </script>
+
             <div class="col-lg-8">
                 <div class="header__nav">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="../">Home</a></li>
-                            <li><a href="../categories">Games <span class="arrow_carrot-down"></span></a>
+                            <li id='a'><a href="../">Home</a></li>
+                            <li id='a'><a href="../categories">Games <span class="arrow_carrot-down"></span></a>
                                 <ul class="dropdown">
                                     <li><a href="../popular_games">Popular Games</a></li>
                                     <li><a href="../new_games">New Games</a></li>
                                     <li><a href="../categories">Categories</a></li>
                                 </ul>
                             </li>
-                            <li><a href="../community">Community</a></li>
-                            <li><a href="/rank/get2">Ranking</a></li>
+                            <li id='a'><a href="../community">Community</a></li>
+                            <li id='a'><a href="/rank/get2">Ranking</a></li>
                             <% if(!loggedIn) { %>
                             <li><a href="/login">Sign Up</a></li>
                             <li><a href="/login">Login</a></li>
@@ -46,6 +57,7 @@
                             </label>
                         </div>
                     </div>
+                    
                     <script>
                         var theme = document.querySelector('#theme-link');
                         const curTheme = localStorage.getItem('theme');
@@ -76,4 +88,5 @@
         </div>
         <div id="mobile-menu-wrap"></div>
     </div>
+
 </header>

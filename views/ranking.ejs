@@ -3,10 +3,90 @@
 
     <%- include('layouts/header'); -%>
 
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="../">
+                            <img src="/img/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li><a href="../">Home</a></li>
+                                <li><a href="../categories">Games <span class="arrow_carrot-down"></span></a>
+                                    <ul class="dropdown">
+                                        <li><a href="../popular_games">Popular Games</a></li>
+                                        <li><a href="../new_games">New Games</a></li>
+                                        <li><a href="../categories">Categories</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="../community">Community</a></li>
+                                <li class="active"><a href="/rank/get2">Ranking</a></li>
+                                <% if(!loggedIn) { %>
+                                <li><a href="/login">Sign Up</a></li>
+                                <li><a href="/login">Login</a></li>
+                                <% } %>
+                                <% if(loggedIn) { %>
+                                <li><a href="../auth/logout">Log out</a></li>
+                                <li><a href="../mypage">Mypage</a></li>
+                                <% } %>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-Flg-2">
+                    <div class="header__right">
+                        <div class="darkcontainer night-mode-available">
+                            <div class="night-mode-button">
+                                <input type="checkbox" class="darkcheckbox" id="night-mode" checked>
+                                <label for="night-mode" class="darklabel">
+                                    <i class="fas fa-sun"></i>
+                                    <i class="fas fa-moon"></i>
+                                    <div class="blob"></div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <script>
+                            var theme = document.querySelector('#theme-link');
+                            const curTheme = localStorage.getItem('theme');
+                            if (curTheme == 'dark-mode') {
+                                theme.setAttribute("href", "/css/style-dark.css");
+                                document.querySelector('#night-mode').checked= true;
+                            }
+                            else if (curTheme == 'light-mode') {
+                                theme.setAttribute("href", "/css/style-light.css");
+                                document.querySelector('#night-mode').checked = false;
+                            }
+                            document.querySelector('.darkcheckbox').addEventListener('change', function () {
+                                if (theme.getAttribute("href") == "/css/style-light.css"){
+                                    theme.setAttribute("href", "/css/style-dark.css");
+                                    localStorage.setItem('theme', 'dark-mode');
+                                    document.querySelector('#night-mode').checked = true;
+                                }
+                                else if (theme.getAttribute("href") == "/css/style-dark.css") {
+                                    theme.setAttribute("href", "/css/style-light.css");
+                                    localStorage.setItem('theme', 'light-mode');
+                                    document.querySelector('#night-mode').checked = false;
+                                }
+                            });
+                        </script>
+                        <a href="/mypage"><span class="icon_profile"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    
+    </header>
 
 <body>
-
-    <%- include('layouts/bar'); -%>
 
         <!-- Page Preloder -->
         <div id="preloder">
