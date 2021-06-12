@@ -15,15 +15,15 @@ module.exports = (req, res) =>{
                         user.image = "/img/photo1.jpg"
                     }
                     global.image = user.image;
-                    res.redirect('/login')
+                    res.render('login', {pass : '1'})
                 }
                 else{
-                    res.redirect('/login')
+                    res.render('login', {pass : '2'})
                 }
             })
         }
         else {
-            res.redirect('/login')
+            res.render('login', {pass : '3'})
         }
     })
 }

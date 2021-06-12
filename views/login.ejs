@@ -108,6 +108,23 @@
     </section>-->
     <!-- Normal Breadcrumb End -->
 
+    <% if(pass == '0') { %>
+        <% } %>
+   <% if(pass == '1') { %>
+    <script type="text/javascript">alert("로그인에 성공하셨습니다!")
+    location.href="/"
+    </script>
+    <% } %>
+    <% if(pass == '2') { %>
+    <script type="text/javascript">alert("비밀번호가 틀렸습니다!")</script>
+    <% } %>
+    <% if(pass == '3') { %>
+        <script type="text/javascript">alert("존재하지 않는 아이디 입니다!")</script>
+    <% } %>
+    <% if(pass == '4') { %>
+        <script type="text/javascript">alert("로그아웃 되셨습니다!")</script>
+    <% } %>
+
     <!-- Login Section Begin -->
 
     <section class="login spad">
